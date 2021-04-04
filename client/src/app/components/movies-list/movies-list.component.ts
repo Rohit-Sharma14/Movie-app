@@ -41,9 +41,6 @@ export class MoviesListComponent implements OnInit {
 
   setActiveMovie(movie: Movie, index: number): void {
     this.currentMovie = movie;
-		if (this.currentMovie) {
-			this.currentMovie.like = this.currentMovie.like + 2;
-		}
     this.currentIndex = index;
   }
 
@@ -64,9 +61,9 @@ export class MoviesListComponent implements OnInit {
     this.movieService.findByTitle(this.title)
       .subscribe(
         data => {
-          this.movies = data.filter(item => {
+          this.movies = data;/*.filter(item => {
             return item.description == 'Marvel'
-          })
+          })*/
 
           console.log(this.movies)
         },

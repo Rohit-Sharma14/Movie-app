@@ -1,8 +1,8 @@
 <div class="list row">
     <div class="col-md-8">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" />
-            <div class="input-group-append">
+            <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" (ngModelChange)="searchTitle()"/>
+            <!-- div class="input-group-append">
                 <div class="col">
                     <div ngbDropdown class="d-inline-block">
                         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
@@ -14,7 +14,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div -->
         </div>
         <div class="col-md-6">
             <h4>Movies List</h4>
@@ -28,9 +28,9 @@
                 </li>
             </ul>
 
-            <button class="m-3 btn btn-sm btn-danger" (click)="removeAllMovies()">
+            <!-- button class="m-3 btn btn-sm btn-danger" (click)="removeAllMovies()">
                 Remove All
-            </button>
+            </button -->
         </div>
         <div class="col-md-6">
             <div *ngIf="currentMovie">
@@ -58,9 +58,9 @@
                 </a>
             </div>
 
-            <div *ngIf="!currentMovie">
+            <!-- div *ngIf="!currentMovie">
                 <br />
                 <p>Please click on a Tutorial...</p>
-            </div>
+            </div -->
         </div>
     </div>
