@@ -46,6 +46,7 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
+          alert('Movie updated successfully');
           this.message = response.message;
         },
         error => {
@@ -53,6 +54,7 @@ export class MovieDetailComponent implements OnInit {
         }
       )
   }
+
   likeMovie(): void {
     if (this.currentMovie.like) {
         this.currentMovie.like++;
@@ -81,17 +83,16 @@ export class MovieDetailComponent implements OnInit {
   }
 
   deleteMovie(): void {
-    if (this.currentMovie.description == 'Marvel') {
-      this.movieService.delete(this.currentMovie.id)
-        .subscribe(
-          response => {
-            console.log(response);
-            this.router.navigate(['/movies'])
-          },
-          error => {
-            console.log(error)
-          }
-        )
-    }
+    this.movieService.delete(this.currentMovie.id)
+    .subscribe(
+        response => {
+        console.log(response);
+        alert('Movie deleted successfully');
+        this.router.navigate(['/movies'])
+        },
+        error => {
+        console.log(error)
+        }
+    )
   }
 }
