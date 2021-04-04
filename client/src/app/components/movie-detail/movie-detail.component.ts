@@ -54,7 +54,9 @@ export class MovieDetailComponent implements OnInit {
       )
   }
   likeMovie(): void {
-    this.currentMovie.like++;
+		if (this.currentMovie.like) {
+			this.currentMovie.like++;
+		}
     // console.log(this.currentMovie.like++)
     // this.movieService.update(this.currentMovie.id, this.currentMovie)
     //   .subscribe(

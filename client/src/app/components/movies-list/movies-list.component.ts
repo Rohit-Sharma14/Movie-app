@@ -41,7 +41,9 @@ export class MoviesListComponent implements OnInit {
 
   setActiveMovie(movie: Movie, index: number): void {
     this.currentMovie = movie;
-    this.currentMovie.like = this.currentMovie.like + 2;
+		if (this.currentMovie) {
+			this.currentMovie.like = this.currentMovie.like + 2;
+		}
     this.currentIndex = index;
   }
 
