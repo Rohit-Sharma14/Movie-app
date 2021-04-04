@@ -16,9 +16,15 @@ export class AddMovieComponent implements OnInit {
     like: 0
   };
   submitted = false;
+  chromeAgent: boolean = false;
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+
+    if (window.navigator.language == 'en-US') {
+      this.chromeAgent = true;
+    }
+    console.log(this.chromeAgent, window.navigator.language)
   }
 
   saveMovie(): void {
@@ -27,17 +33,19 @@ export class AddMovieComponent implements OnInit {
       description: this.movie.description,
       year: this.movie.year
     }
-
-    this.movieService.create(data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-        },
-        error => {
-          console.log(error)
-        }
-      )
+    // console.log(this.chromeAgent)
+    if (this.chromeAgent == true) {
+      this.movieService.create(data)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.submitted = true;
+          },
+          error => {
+            console.log(error)
+          }
+        )
+    }
   }
 
   newMovie(): void {

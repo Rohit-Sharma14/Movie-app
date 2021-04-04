@@ -25,6 +25,7 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit(): void {
     this.message = '';
     this.getMovie(this.route.snapshot.params.id)
+
   }
 
   getMovie(id: string): void {
@@ -55,28 +56,41 @@ export class MovieDetailComponent implements OnInit {
   likeMovie(): void {
     this.currentMovie.like++;
     // console.log(this.currentMovie.like++)
-    this.movieService.update(this.currentMovie.id, this.currentMovie)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.message = response.message;
-        },
-        error => {
-          console.log(error)
-        }
-      )
+    // this.movieService.update(this.currentMovie.id, this.currentMovie)
+    //   .subscribe(
+    //     response => {
+    //       console.log(response);
+    //       this.message = response.message;
+    //     },
+    //     error => {
+    //       console.log(error)
+    //     }
+    //   )
+    console.log(window.navigator.appName, window.navigator.appCodeName, window.navigator.product, window.navigator.userAgent)
+    console.log(window.navigator)
+
+
+    // let IExplorerAgent =
+    //   window.navigator.userAgent.indexOf("MSIE") > -1 ||
+    //   window.navigator.userAgent.indexOf("rv:") > -1;
+    // console.log(IExplorerAgent)
+    // let safariAgent =
+    //   window.navigator.userAgent.indexOf("Safari") > -1;
+    // console.log(safariAgent)
   }
 
   deleteMovie(): void {
-    this.movieService.delete(this.currentMovie.id)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/movies'])
-        },
-        error => {
-          console.log(error)
-        }
-      )
+    if (this.currentMovie.description == 'Marvel') {
+      this.movieService.delete(this.currentMovie.id)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.router.navigate(['/movies'])
+          },
+          error => {
+            console.log(error)
+          }
+        )
+    }
   }
 }
