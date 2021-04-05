@@ -7,3 +7,6 @@ class Movie(models.Model):
     description = models.CharField(max_length=200,blank=False, default='')
     year = models.CharField(max_length=4)
     like = models.IntegerField(default=0)
+
+#class Actor(models.Model):
+#    name = models.CharField(max_length=70, blank=False, default='')

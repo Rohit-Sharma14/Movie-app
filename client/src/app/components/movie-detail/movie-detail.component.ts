@@ -46,7 +46,7 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          alert('Movie updated successfully');
+          alert('Movie updated sucesfully');
           this.message = response.message;
         },
         error => {
@@ -56,7 +56,7 @@ export class MovieDetailComponent implements OnInit {
   }
 
   likeMovie(): void {
-    if (this.currentMovie.like) {
+      if (this.currentMovie.like != null) {
         this.currentMovie.like++;
     }
     // console.log(this.currentMovie.like++)

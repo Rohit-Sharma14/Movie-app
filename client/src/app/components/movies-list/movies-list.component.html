@@ -24,9 +24,9 @@
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let movie of movies; let i = index"
                 [class.active]="i == currentIndex" (click)="setActiveMovie(movie, i)">
-                {{ movie.title }} ({{movie.year}})
+                <b>{{ movie.title }}</b> ({{movie.year}})
                 <div class="right">
-                    <h1 class="right">{{movie.description}}</h1>
+                    {{movie.description}}
                 </div>
             </li>
         </ul>
@@ -51,8 +51,8 @@
                 {{ currentMovie.year }}
             </div>
             <div>
-                <label><strong>Like:</strong></label>
-                {{ currentMovie.like }}
+                <label><strong>Watched:</strong></label>
+                {{ currentMovie.like }} times
             </div>
 
 
